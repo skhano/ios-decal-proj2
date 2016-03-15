@@ -5,10 +5,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Start Screen View Controller-->
         <scene sceneID="XCE-A4-Khk">
             <objects>
-                <viewController id="rtB-32-LJu" sceneMemberID="viewController">
+                <viewController id="rtB-32-LJu" customClass="StartScreenViewController" customModule="Hangman" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="zVS-me-Edx"/>
                         <viewControllerLayoutGuide type="bottom" id="9qn-nP-fU8"/>
@@ -28,7 +28,7 @@
                                     <color key="titleColor" red="0.18952716780000001" green="0.084045296280000001" blue="0.66032608699999995" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="presentation" id="sl7-hf-Ovd"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" identifier="unwindToStart" id="beG-1p-pJm"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hangman" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="10j-dL-3q5">
@@ -55,7 +55,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jmp-zQ-eeH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="527" y="385"/>
+            <point key="canvasLocation" x="686" y="342"/>
         </scene>
         <!--Game View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -69,58 +69,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ggc-5h-f5W">
-                                <rect key="frame" x="273" y="402" width="54" height="41"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="54" id="gOh-4f-wlW"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <state key="normal" title="Correct">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="correctEntrySoMakeTheLetterAppear" destination="BYZ-38-t0r" eventType="touchUpInside" id="rTQ-6O-g4M"/>
-                                </connections>
-                            </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hangman1.gif" translatesAutoresizingMaskIntoConstraints="NO" id="d0n-F3-bfz">
-                                <rect key="frame" x="250" y="250" width="100" height="100"/>
+                                <rect key="frame" x="242" y="242" width="117" height="117"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="201" id="0fj-J7-OnI"/>
-                                    <constraint firstAttribute="height" constant="211" id="4Ij-He-53f"/>
-                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="91" id="911-tC-SEh"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="211" id="Iul-dg-16w"/>
-                                    <constraint firstAttribute="width" constant="100" id="Lvq-oi-Bta"/>
-                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="160" id="NcE-Vj-KY9"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="201" id="XX7-Pf-C67"/>
-                                    <constraint firstAttribute="width" constant="201" id="pSK-q1-7yY"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="91" id="rA1-UZ-S4x"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="117" id="9Dd-RX-3Bu"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="117" id="PET-9T-Vpa"/>
+                                    <constraint firstAttribute="width" constant="117" id="vue-wb-rDc"/>
                                 </constraints>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="0fj-J7-OnI"/>
-                                        <exclude reference="4Ij-He-53f"/>
-                                        <exclude reference="911-tC-SEh"/>
-                                        <exclude reference="Iul-dg-16w"/>
-                                        <exclude reference="NcE-Vj-KY9"/>
-                                        <exclude reference="XX7-Pf-C67"/>
-                                        <exclude reference="pSK-q1-7yY"/>
-                                    </mask>
-                                </variation>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PGM-cv-dQF">
-                                <rect key="frame" x="267" y="460" width="67" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="VLr-2k-XOu"/>
-                                    <constraint firstAttribute="width" constant="67" id="wNq-zL-6Fd"/>
-                                </constraints>
-                                <state key="normal" title="Incorrect">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="incorrectEntryAddAnotherBodyPart" destination="BYZ-38-t0r" eventType="touchUpInside" id="Iue-hT-RPb"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q19-d3-faK">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q19-d3-faK">
                                 <rect key="frame" x="150" y="87" width="300" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="61W-Li-7TT"/>
@@ -129,57 +86,461 @@
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="26"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="z1f-hv-VWW">
-                                <rect key="frame" x="252" y="512" width="97" height="30"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="1JK-qI-Kbf">
+                                <rect key="frame" x="186" y="477" width="228" height="35"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mv4-aU-lth">
+                                        <rect key="frame" x="0.0" y="0.0" width="30" height="35"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="30" id="4IL-sM-wEr"/>
+                                        </constraints>
+                                        <state key="normal" title="Z" image="letter_Z.gif">
+                                            <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="checkLetter:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NIN-ND-uiG"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cF0-wL-GYu">
+                                        <rect key="frame" x="33" y="0.0" width="30" height="35"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="30" id="fFV-NE-Ovl"/>
+                                        </constraints>
+                                        <state key="normal" title="X" image="letter_X.gif">
+                                            <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="checkLetter:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ZVU-ly-ygq"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NyD-oh-FSN">
+                                        <rect key="frame" x="66" y="0.0" width="30" height="35"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="30" id="hFd-GF-ydn"/>
+                                        </constraints>
+                                        <state key="normal" title="C" image="letter_C.gif">
+                                            <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="checkLetter:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lol-HJ-Jo9"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WPu-Wj-Uzn">
+                                        <rect key="frame" x="99" y="0.0" width="30" height="35"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="30" id="m6a-NL-qsY"/>
+                                        </constraints>
+                                        <state key="normal" title="V" image="letter_V.gif">
+                                            <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="checkLetter:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ouG-8f-6kK"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3t2-c9-RMJ">
+                                        <rect key="frame" x="132" y="0.0" width="30" height="35"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="30" id="uVV-hs-Ch6"/>
+                                        </constraints>
+                                        <state key="normal" title="B" image="letter_B.gif">
+                                            <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="checkLetter:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bbp-1I-pR7"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JNE-Jv-mm2">
+                                        <rect key="frame" x="165" y="0.0" width="30" height="35"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="30" id="gP2-n6-k5l"/>
+                                        </constraints>
+                                        <state key="normal" title="N" image="letter_N.gif">
+                                            <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="checkLetter:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TPd-aT-E2a"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Osh-10-SvQ">
+                                        <rect key="frame" x="198" y="0.0" width="30" height="35"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="30" id="DUx-Jx-KhD"/>
+                                        </constraints>
+                                        <state key="normal" title="M" image="letter_M.gif">
+                                            <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="checkLetter:" destination="BYZ-38-t0r" eventType="touchUpInside" id="WFP-WP-m6p"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="97" id="Pki-rb-GiB"/>
+                                    <constraint firstAttribute="height" constant="35" id="Xt8-uF-Kfh"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jed-Lz-Nf7">
-                                <rect key="frame" x="147" y="204" width="306" height="21"/>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="WKI-AD-d7C">
+                                <rect key="frame" x="137" y="377" width="327" height="35"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b8V-ye-61E">
+                                        <rect key="frame" x="0.0" y="0.0" width="30" height="35"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="40" id="ZMO-XN-hyX"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="20" id="pyg-Th-HFt"/>
+                                            <constraint firstAttribute="width" constant="30" id="rAg-vk-yKV"/>
+                                        </constraints>
+                                        <state key="normal" title="Q" image="letter_Q.gif">
+                                            <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="ZMO-XN-hyX"/>
+                                                <exclude reference="pyg-Th-HFt"/>
+                                            </mask>
+                                        </variation>
+                                        <connections>
+                                            <action selector="checkLetter:" destination="BYZ-38-t0r" eventType="touchUpInside" id="sAJ-F2-kSp"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3bF-Mm-w70">
+                                        <rect key="frame" x="33" y="0.0" width="30" height="35"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="30" id="WjS-Sh-NM4"/>
+                                            <constraint firstAttribute="width" constant="40" id="c0q-Y3-CBy"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="20" id="o0D-Xi-hKh"/>
+                                            <constraint firstAttribute="height" constant="40" id="tjl-Z0-itL"/>
+                                        </constraints>
+                                        <state key="normal" title="W" image="letter_W.gif">
+                                            <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="c0q-Y3-CBy"/>
+                                                <exclude reference="o0D-Xi-hKh"/>
+                                                <exclude reference="tjl-Z0-itL"/>
+                                            </mask>
+                                        </variation>
+                                        <connections>
+                                            <action selector="checkLetter:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DLi-Je-Uwa"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="beO-ct-46Q">
+                                        <rect key="frame" x="66" y="0.0" width="30" height="35"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="40" id="0lu-U5-NGr"/>
+                                            <constraint firstAttribute="width" constant="30" id="H7Z-Do-Gdd"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="20" id="eZ3-xZ-wuZ"/>
+                                        </constraints>
+                                        <state key="normal" title="E" image="letter_E.gif">
+                                            <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="0lu-U5-NGr"/>
+                                                <exclude reference="eZ3-xZ-wuZ"/>
+                                            </mask>
+                                        </variation>
+                                        <connections>
+                                            <action selector="checkLetter:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ZIW-jl-wj0"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HWv-fO-4CD">
+                                        <rect key="frame" x="99" y="0.0" width="30" height="35"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="20" id="XDW-jF-9iZ"/>
+                                            <constraint firstAttribute="width" constant="30" id="YDj-JP-ZCN"/>
+                                            <constraint firstAttribute="width" constant="40" id="iPt-cv-i7S"/>
+                                        </constraints>
+                                        <state key="normal" title="R" image="letter_R.gif">
+                                            <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="XDW-jF-9iZ"/>
+                                                <exclude reference="iPt-cv-i7S"/>
+                                            </mask>
+                                        </variation>
+                                        <connections>
+                                            <action selector="checkLetter:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oxc-b0-sJB"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="21U-tz-VJz">
+                                        <rect key="frame" x="132" y="0.0" width="30" height="35"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="30" id="p5R-gQ-xBF"/>
+                                        </constraints>
+                                        <state key="normal" title="T" image="letter_T.gif">
+                                            <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="checkLetter:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Z9W-cD-tlq"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qmO-45-py8">
+                                        <rect key="frame" x="165" y="0.0" width="30" height="35"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="30" id="uRQ-KF-fAM"/>
+                                        </constraints>
+                                        <state key="normal" title="Y" image="letter_Y.gif">
+                                            <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="checkLetter:" destination="BYZ-38-t0r" eventType="touchUpInside" id="038-AZ-8pB"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R4H-YK-Qsw">
+                                        <rect key="frame" x="198" y="0.0" width="30" height="35"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="30" id="G17-do-SFm"/>
+                                        </constraints>
+                                        <state key="normal" title="U" image="letter_U.gif">
+                                            <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="checkLetter:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dAk-hP-6Y6"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Fe-T4-s2g">
+                                        <rect key="frame" x="231" y="0.0" width="30" height="35"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="30" id="v4m-Ci-AuM"/>
+                                        </constraints>
+                                        <state key="normal" title="I" image="letter_I.gif">
+                                            <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="checkLetter:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fjH-dD-GUt"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ekh-Hu-CjP">
+                                        <rect key="frame" x="264" y="0.0" width="30" height="35"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="30" id="DdW-DA-t1r"/>
+                                        </constraints>
+                                        <state key="normal" title="O" image="letter_O.gif">
+                                            <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="checkLetter:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Bd0-05-DHy"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aNf-lW-dbm">
+                                        <rect key="frame" x="297" y="0.0" width="30" height="35"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="30" id="z8l-xy-don"/>
+                                        </constraints>
+                                        <state key="normal" title="P" image="letter_P.gif">
+                                            <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="checkLetter:" destination="BYZ-38-t0r" eventType="touchUpInside" id="iJp-ya-yky"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="Thy-uo-cQU"/>
+                                </constraints>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="WVo-IX-Ik3">
+                                <rect key="frame" x="153" y="428" width="294" height="35"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ggc-5h-f5W">
+                                        <rect key="frame" x="0.0" y="0.0" width="30" height="35"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="30" id="79o-gK-kCR"/>
+                                        </constraints>
+                                        <state key="normal" title="A" image="letter_A.gif">
+                                            <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="checkLetter:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yoM-IQ-7pl"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rMB-rG-JVu">
+                                        <rect key="frame" x="33" y="0.0" width="30" height="35"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="30" id="o0R-hX-fic"/>
+                                        </constraints>
+                                        <state key="normal" title="S" image="letter_S.gif">
+                                            <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="checkLetter:" destination="BYZ-38-t0r" eventType="touchUpInside" id="e2H-GH-Rw4"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oLR-du-Siz">
+                                        <rect key="frame" x="66" y="0.0" width="30" height="35"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="30" id="GU1-2J-yGh"/>
+                                        </constraints>
+                                        <state key="normal" title="D" image="letter_D.gif">
+                                            <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="checkLetter:" destination="BYZ-38-t0r" eventType="touchUpInside" id="g5K-RY-FpU"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X8b-Fw-Dew">
+                                        <rect key="frame" x="99" y="0.0" width="30" height="35"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="30" id="HJa-Pa-Vz1"/>
+                                        </constraints>
+                                        <state key="normal" title="F" image="letter_F.gif">
+                                            <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="checkLetter:" destination="BYZ-38-t0r" eventType="touchUpInside" id="76d-r3-Zyn"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iW9-1R-HH9">
+                                        <rect key="frame" x="132" y="0.0" width="30" height="35"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="30" id="7Vp-Hb-6c0"/>
+                                        </constraints>
+                                        <state key="normal" title="G" image="letter_G.gif">
+                                            <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="checkLetter:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yD5-YP-cBo"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q03-4o-Y15">
+                                        <rect key="frame" x="165" y="0.0" width="30" height="35"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="30" id="uHy-hu-pif"/>
+                                        </constraints>
+                                        <state key="normal" title="H" image="letter_H.gif">
+                                            <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="checkLetter:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HZX-tS-MSh"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vWf-eg-Sas">
+                                        <rect key="frame" x="198" y="0.0" width="30" height="35"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="30" id="gaI-8M-Br5"/>
+                                        </constraints>
+                                        <state key="normal" title="J" image="letter_J.gif">
+                                            <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="checkLetter:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ujf-P9-b98"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c8l-Sg-zEf">
+                                        <rect key="frame" x="231" y="0.0" width="30" height="35"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="30" id="KWH-fo-QF6"/>
+                                        </constraints>
+                                        <state key="normal" title="K" image="letter_K.gif">
+                                            <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="checkLetter:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ahg-uE-KHp"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PpA-vh-vPt">
+                                        <rect key="frame" x="264" y="0.0" width="30" height="35"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="30" id="obp-rP-QAw"/>
+                                        </constraints>
+                                        <state key="normal" title="L" image="letter_L.gif">
+                                            <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="checkLetter:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bOj-pW-Epq"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="N0Z-eM-Vhx"/>
+                                    <constraint firstAttribute="bottom" secondItem="iW9-1R-HH9" secondAttribute="bottom" id="xWe-ws-8Rn"/>
+                                    <constraint firstItem="iW9-1R-HH9" firstAttribute="top" secondItem="WVo-IX-Ik3" secondAttribute="top" id="zZJ-Jd-2Kt"/>
+                                </constraints>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jed-Lz-Nf7">
+                                <rect key="frame" x="147" y="213" width="306" height="21"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="306" id="CxA-1o-hpU"/>
                                     <constraint firstAttribute="height" constant="21" id="FC2-PU-wB7"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="22"/>
-                                <color key="textColor" red="0.95988343253968256" green="0.20202372163781432" blue="0.25614409453382248" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.95988343253968256" green="0.27195932233957537" blue="0.1660963660809634" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s43-Ee-WUl">
+                                <rect key="frame" x="186" y="41" width="228" height="36"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <state key="normal" title="Start Over">
+                                    <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.13293937950000001" green="0.66032608699999995" blue="0.47681704219999999" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="PGM-cv-dQF" firstAttribute="centerX" secondItem="ggc-5h-f5W" secondAttribute="centerX" id="1Uw-Cy-0Pe"/>
-                            <constraint firstItem="z1f-hv-VWW" firstAttribute="centerX" secondItem="PGM-cv-dQF" secondAttribute="centerX" id="3FA-8c-cxi"/>
-                            <constraint firstItem="z1f-hv-VWW" firstAttribute="top" secondItem="PGM-cv-dQF" secondAttribute="bottom" constant="22" id="7rE-ya-dDj"/>
+                            <constraint firstItem="WVo-IX-Ik3" firstAttribute="top" secondItem="WKI-AD-d7C" secondAttribute="bottom" constant="16" id="3A4-Ff-p2o"/>
+                            <constraint firstItem="1JK-qI-Kbf" firstAttribute="top" secondItem="WVo-IX-Ik3" secondAttribute="bottom" constant="14" id="7b7-H6-08P"/>
                             <constraint firstItem="Q19-d3-faK" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="67" id="8ry-tr-cYp"/>
-                            <constraint firstItem="PGM-cv-dQF" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="9dE-1y-21P"/>
-                            <constraint firstItem="Jed-Lz-Nf7" firstAttribute="top" secondItem="Q19-d3-faK" secondAttribute="bottom" constant="87" id="CSg-bO-NYJ"/>
+                            <constraint firstItem="Jed-Lz-Nf7" firstAttribute="top" secondItem="Q19-d3-faK" secondAttribute="bottom" constant="96" id="CSg-bO-NYJ"/>
+                            <constraint firstItem="1JK-qI-Kbf" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="CkO-Ni-0YM"/>
                             <constraint firstItem="d0n-F3-bfz" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="EVP-3L-wg3"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="1JK-qI-Kbf" secondAttribute="bottom" constant="88" id="Ixq-h8-rcJ"/>
                             <constraint firstItem="d0n-F3-bfz" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Jg5-cU-BLC"/>
-                            <constraint firstItem="ggc-5h-f5W" firstAttribute="top" secondItem="d0n-F3-bfz" secondAttribute="bottom" constant="52" id="LyM-6p-TXS"/>
-                            <constraint firstItem="d0n-F3-bfz" firstAttribute="top" secondItem="Jed-Lz-Nf7" secondAttribute="bottom" constant="16" id="Ou8-tC-E5f"/>
+                            <constraint firstItem="WKI-AD-d7C" firstAttribute="centerX" secondItem="WVo-IX-Ik3" secondAttribute="centerX" id="Jph-r9-d64"/>
+                            <constraint firstItem="s43-Ee-WUl" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="21" id="MGM-fv-0NI"/>
+                            <constraint firstItem="WKI-AD-d7C" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Npd-2Q-WTX"/>
+                            <constraint firstItem="1JK-qI-Kbf" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ThU-dm-6hh"/>
                             <constraint firstItem="Q19-d3-faK" firstAttribute="centerX" secondItem="d0n-F3-bfz" secondAttribute="centerX" id="ZMc-wV-Xhp"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="PGM-cv-dQF" secondAttribute="bottom" constant="110" id="bMi-mG-Lht"/>
+                            <constraint firstItem="s43-Ee-WUl" firstAttribute="leading" secondItem="1JK-qI-Kbf" secondAttribute="leading" id="eMb-y1-Yaz"/>
                             <constraint firstItem="Jed-Lz-Nf7" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="edH-f2-Rgd"/>
-                            <constraint firstItem="PGM-cv-dQF" firstAttribute="top" secondItem="ggc-5h-f5W" secondAttribute="bottom" constant="17" id="rfV-ED-Tpf"/>
+                            <constraint firstItem="s43-Ee-WUl" firstAttribute="trailing" secondItem="1JK-qI-Kbf" secondAttribute="trailing" id="gPl-jL-mjm"/>
+                            <constraint firstItem="1JK-qI-Kbf" firstAttribute="top" secondItem="WVo-IX-Ik3" secondAttribute="bottom" constant="14" id="lIt-eK-jzs"/>
+                            <constraint firstItem="WVo-IX-Ik3" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="vzf-Pb-bZE"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="hangmanImage" destination="d0n-F3-bfz" id="fdw-jD-2xS"/>
-                        <outlet property="hangmanWord" destination="Q19-d3-faK" id="ojP-Ug-u62"/>
+                        <outlet property="hangmanWord" destination="Q19-d3-faK" id="YwP-6R-0ku"/>
+                        <outlet property="startOver" destination="s43-Ee-WUl" id="ukx-q6-Kbe"/>
                         <outlet property="wrongGuessesLabel" destination="Jed-Lz-Nf7" id="5UI-SH-Vge"/>
+                        <segue destination="mAq-Px-mvR" kind="unwind" identifier="unwindToStart" unwindAction="unwindToStart:" id="0WC-ob-5Bk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <exit id="mAq-Px-mvR" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1284" y="385"/>
+            <point key="canvasLocation" x="1373" y="342"/>
         </scene>
     </scenes>
     <resources>
         <image name="hangman1.gif" width="100" height="100"/>
         <image name="hangman7.gif" width="100" height="100"/>
+        <image name="letter_A.gif" width="138" height="138"/>
+        <image name="letter_B.gif" width="138" height="138"/>
+        <image name="letter_C.gif" width="138" height="138"/>
+        <image name="letter_D.gif" width="138" height="138"/>
+        <image name="letter_E.gif" width="138" height="138"/>
+        <image name="letter_F.gif" width="138" height="138"/>
+        <image name="letter_G.gif" width="138" height="138"/>
+        <image name="letter_H.gif" width="138" height="138"/>
+        <image name="letter_I.gif" width="138" height="138"/>
+        <image name="letter_J.gif" width="138" height="138"/>
+        <image name="letter_K.gif" width="138" height="138"/>
+        <image name="letter_L.gif" width="138" height="138"/>
+        <image name="letter_M.gif" width="138" height="138"/>
+        <image name="letter_N.gif" width="138" height="138"/>
+        <image name="letter_O.gif" width="138" height="138"/>
+        <image name="letter_P.gif" width="138" height="138"/>
+        <image name="letter_Q.gif" width="138" height="138"/>
+        <image name="letter_R.gif" width="138" height="138"/>
+        <image name="letter_S.gif" width="138" height="138"/>
+        <image name="letter_T.gif" width="138" height="138"/>
+        <image name="letter_U.gif" width="138" height="138"/>
+        <image name="letter_V.gif" width="138" height="138"/>
+        <image name="letter_W.gif" width="138" height="138"/>
+        <image name="letter_X.gif" width="138" height="138"/>
+        <image name="letter_Y.gif" width="138" height="138"/>
+        <image name="letter_Z.gif" width="138" height="138"/>
     </resources>
 </document>

@@ -21,15 +21,21 @@ class StartScreenViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func unwindToStart(segue: UIStoryboardSegue) {}
+    
 
-    /*
-    // MARK: - Navigation
+//     MARK: - Navigation
+//
+//     In a storyboard-based application, you will often want to do a little preparation before navigation
+//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+//        if (segue.identifier == "AddItem") {
+//            let nav = segue.destinationViewController as! UINavigationController
+//            let vc = nav.viewControllers.first as! GameViewController
+//            vc.delegate = self
+//        }
+//         Get the new view controller using segue.destinationViewController.
+//         Pass the selected object to the new view controller.
+//    }
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
